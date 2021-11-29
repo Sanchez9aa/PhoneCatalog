@@ -1,0 +1,9 @@
+//Get all phones
+
+GET http://localhost:8800/phones HTTP/1.1
+
+###
+
+//Get only one phone
+
+GET http://localhost:8800/phones?name=iPhone%207
