@@ -1,0 +1,88 @@
+.sf{
+  width: 100%;
+  height: 100%;
+  padding: 35px 0;
+}
+
+.sf-wrapper{
+  max-width: 1300px;
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+}
+
+.sf-left{
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  padding: 10px;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 5px 1px #e9e9e9; 
+  box-shadow: 1px 1px 5px 1px #e9e9e9;
+  width: 380px;
+  height: 50px;
+  background-color: white;
+}
+
+.sf-left svg{
+  margin: 0 20px 0 10px
+}
+
+.sf-left-search{
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  background: transparent;
+}
+
+input:focus{
+  outline: none;
+}
+
+.sf-rigth{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15px;
+  padding: 10px;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 5px 1px #e9e9e9; 
+  box-shadow: 1px 1px 5px 1px #e9e9e9;
+  background-color: white;
+}
+
+.sf-rigth select{
+  border: none;
+  font-size: 14px;
+  padding: 0px 20px;
+  cursor: pointer;
+}
+
+.sf-rigth select:focus-visible {
+  outline: none;
+}
+
+select option{
+border: none;
+}
+.sf-rigth select{
+  background: transparent;
+}
+
+@media screen and (max-width: 480px) {
+  .sf-wrapper{
+    flex-direction: column;
+  }
+
+  .sf-left{
+    width: auto;
+    padding: 15px;
+    margin-bottom: 35px;
+    justify-content: space-evenly;
+  }
+
+  .sf-rigth{
+    padding: 15px;
+    width: 50%;
+  }
+}
