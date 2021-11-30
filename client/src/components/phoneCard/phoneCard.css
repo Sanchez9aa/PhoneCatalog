@@ -33,6 +33,7 @@
     padding: 5px 20px;
     background-color: white;
     border-radius: 0 0 5px 5px;
+    transition: 0.5s linear;
 }
 
 .cc-info li {

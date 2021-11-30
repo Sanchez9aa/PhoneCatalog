@@ -13,27 +13,33 @@
 
 .darkEL{
   background-color: hsl(209, 23%, 22%) !important; 
+  transition: 0.5s linear;
 }
 
 .darkBG{
   background-color: hsl(207, 26%, 17%) !important; 
+  transition: 0.5s linear;
 }
 
 .darkColor{
   color:hsl(0, 0%, 100%) !important; 
+  transition: 0.5s linear;
 }
 
 .shadow{
 	box-shadow: 1px 0 6px 1px hsl(0deg 0% 13%) !important;
+  transition: 0.5s linear;
 }
 
 .border{
-	border-color: hsl(0, 0%, 0%) !important
+	border-color: hsl(0, 0%, 0%) !important;
+  transition: 0.5s linear;
 }
 
 .option{
   background-color: hsl(209, 23%, 22%) !important; 
   color:hsl(0, 0%, 75%) !important; 
+  transition: 0.5s linear;
 }
 
 .visual-hidden{
