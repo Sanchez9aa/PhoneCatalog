@@ -4,13 +4,13 @@ POST http://localhost:8800/phones HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Honor 4",
-    "manufacturer": "Honor",
-    "description": "",
-    "color": "white",
-    "price": 769,
-    "imageFileName": "IPhone_7.png",
-    "screen": "4,7 inch IPS",
-    "processor": "A10 Fusion",
-    "ram": 2
+    "name": "TCL 10 SE",
+    "manufacturer": "Tcl",
+    "description": "NXTVISION, Notch Gota, resistente a rayones",
+    "color": "Black",
+    "price": 190,
+    "imageFileName": "tcl.png",
+    "screen": "6,52 inch",
+    "processor": "Helio P22",
+    "ram": 4
 }
