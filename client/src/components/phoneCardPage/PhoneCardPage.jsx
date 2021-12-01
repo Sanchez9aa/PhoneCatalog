@@ -1,20 +1,26 @@
 import "./phoneCardPage.css";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Minus, Edit } from "react-feather";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { DarkContext } from "../../contextApi";
 import getApi from '../../services/getApi'
 import { useNavigate } from "react-router-dom";
+import ModalEditPhone from '../modalEditPhone/ModalEditPhone'
 
 const PhoneCardPage = ({ data }) => {
   const dark = useContext(DarkContext);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const navigate = useNavigate();
+  const [show, setShow] = useState(false)
 
   const deleteThisPhone = () => {
     getApi.deletePhone(data._id)
     console.log(data._id)
     navigate("/")
+  }
+
+  const handleModal = () => {
+    setShow(!show)
   }
 
   return (
@@ -37,6 +43,7 @@ const PhoneCardPage = ({ data }) => {
                 </Link>
               </div>
               <div
+              onClick={() => handleModal()}
                 className={
                   !dark.state.darkmode ? "cp-topbar-item" : "cp-topbar-item shadow darkEL"
                 }
@@ -144,6 +151,7 @@ const PhoneCardPage = ({ data }) => {
           </div>
         </div>
       ) : null}
+      {!show ? null : <ModalEditPhone show={show} id={data._id}/> }
     </>
   );
 };
