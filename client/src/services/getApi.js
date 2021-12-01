@@ -20,11 +20,10 @@ const getPhoneByName = async (phone, setData) => {
     })
 }
 
-const updatePhone = async (country, setData) => {
-    const res = await axios.get(`${apiUrl}/alpha?codes=${country}`)
+const updatePhone = async (id, phone, setData) => {
+    const res = await axios.put(apiUrl + id, phone)
     .then(res => {
-        const name = res.data[0].name.common 
-        setData(name)
+        setData("Phone updated")
     }).catch(err =>{
         console.log(err)
     })
