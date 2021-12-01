@@ -1,63 +1,139 @@
 import "./phoneCardPage.css";
 import { Link } from "react-router-dom";
-import { ArrowLeft } from "react-feather";
+import { ArrowLeft, Minus, Edit } from "react-feather";
 import { useContext } from "react";
-import { DarkContext} from "../../contextApi";
+import { DarkContext } from "../../contextApi";
+import getApi from '../../services/getApi'
+import { useNavigate } from "react-router-dom";
 
 const PhoneCardPage = ({ data }) => {
-  const dark = useContext(DarkContext)
+  const dark = useContext(DarkContext);
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  const navigate = useNavigate();
 
-  const PF = process.env.REACT_APP_PUBLIC_FOLDER
+  const deleteThisPhone = () => {
+    getApi.deletePhone(data._id)
+    console.log(data._id)
+    navigate("/")
+  }
 
   return (
     <>
       {data ? (
         <div className={!dark.state.darkmode ? "cp" : "cp darkBG"}>
           <div className="cp-wrapper">
-            <div className={!dark.state.darkmode ? "cp-back" : "cp-back shadow darkEL" }>
-              <Link to={"/"}>
-                <ArrowLeft color={!dark.state.darkmode ? "black" : "white"} />
-                <span className={!dark.state.darkmode ? null : "darkColor"}> Back </span>
-              </Link>
+            <div className="cp-topBar">
+              <div
+                className={
+                  !dark.state.darkmode ? "cp-topbar-item" : "cp-topbar-item shadow darkEL"
+                }
+              >
+                <Link to={"/"}>
+                  <ArrowLeft arial-hidden="true" size={20} color={!dark.state.darkmode ? "black" : "white"} />
+                  <span className={!dark.state.darkmode ? null : "darkColor"}>
+                    {" "}
+                    Back{" "}
+                  </span>
+                </Link>
+              </div>
+              <div
+                className={
+                  !dark.state.darkmode ? "cp-topbar-item" : "cp-topbar-item shadow darkEL"
+                }
+              >
+                  <Minus arial-hidden="true" size={20} color={!dark.state.darkmode ? "black" : "white"} />
+                  <span className={!dark.state.darkmode ? null : "darkColor"}>
+                    {" "}
+                    Update{" "}
+                  </span>
+              </div>
+              <div
+                onClick ={() => deleteThisPhone()}
+                className={
+                  !dark.state.darkmode ? "cp-topbar-item" : "cp-topbar-item shadow darkEL"
+                }
+              >
+                <Edit arial-hidden="true" size={20} color={!dark.state.darkmode ? "black" : "white"} />
+                <span className={!dark.state.darkmode ? null : "darkColor"}>
+                  {" "}
+                  Delete{" "}
+                </span>
+              </div>
             </div>
 
             <div className="cp-country">
               <div className="cp-img">
-                <img
-                  src={PF + data.imageFileName}
-                  alt={`${data.name} phone`}
-                />
+                <img src={PF + data.imageFileName} alt={`${data.name} phone`} />
               </div>
               <div className="cp-info">
-                <h1 className={!dark.state.darkmode ? "cp-title" : "cp-title darkColor"}>{data.name}</h1>
+                <h1
+                  className={
+                    !dark.state.darkmode ? "cp-title" : "cp-title darkColor"
+                  }
+                >
+                  {data.name}
+                </h1>
                 <div className="cp-moreInfo">
                   <div className="cp-moreInfo1">
                     <ul>
                       <li className={!dark.state.darkmode ? null : "darkColor"}>
-                        <strong className={!dark.state.darkmode ? null : "darkColor"}>Color:</strong> {data.color}
+                        <strong
+                          className={!dark.state.darkmode ? null : "darkColor"}
+                        >
+                          Color:
+                        </strong>{" "}
+                        {data.color}
                       </li>
                       <li className={!dark.state.darkmode ? null : "darkColor"}>
-                        <strong className={!dark.state.darkmode ? null : "darkColor"}>Description:</strong> {data.description}
+                        <strong
+                          className={!dark.state.darkmode ? null : "darkColor"}
+                        >
+                          Description:
+                        </strong>{" "}
+                        {data.description}
                       </li>
                       <li className={!dark.state.darkmode ? null : "darkColor"}>
-                        <strong className={!dark.state.darkmode ? null : "darkColor"}>Manufacturer:</strong> {data.manufacturer}
+                        <strong
+                          className={!dark.state.darkmode ? null : "darkColor"}
+                        >
+                          Manufacturer:
+                        </strong>{" "}
+                        {data.manufacturer}
                       </li>
                       <li className={!dark.state.darkmode ? null : "darkColor"}>
-                        <strong className={!dark.state.darkmode ? null : "darkColor"}>Price:</strong> {data.price}
+                        <strong
+                          className={!dark.state.darkmode ? null : "darkColor"}
+                        >
+                          Price:
+                        </strong>{" "}
+                        {data.price}
                       </li>
                     </ul>
                   </div>
                   <div className="cp-moreInfo2">
                     <ul>
                       <li className={!dark.state.darkmode ? null : "darkColor"}>
-                        <strong className={!dark.state.darkmode ? null : "darkColor"}>Processor</strong> {data.processor}
+                        <strong
+                          className={!dark.state.darkmode ? null : "darkColor"}
+                        >
+                          Processor
+                        </strong>{" "}
+                        {data.processor}
                       </li>
                       <li className={!dark.state.darkmode ? null : "darkColor"}>
-                        <strong className={!dark.state.darkmode ? null : "darkColor"}>Ram:</strong>{" "}
+                        <strong
+                          className={!dark.state.darkmode ? null : "darkColor"}
+                        >
+                          Ram:
+                        </strong>{" "}
                         {data.ram}
                       </li>
                       <li className={!dark.state.darkmode ? null : "darkColor"}>
-                        <strong className={!dark.state.darkmode ? null : "darkColor"}>Screen:</strong>{" "}
+                        <strong
+                          className={!dark.state.darkmode ? null : "darkColor"}
+                        >
+                          Screen:
+                        </strong>{" "}
                         {data.screen}
                       </li>
                     </ul>
