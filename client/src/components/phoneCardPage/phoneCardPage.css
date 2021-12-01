@@ -1,22 +1,13 @@
-html, body {
-  min-height: 100%
-}
-
-.root{
-  height: -moz-calc(100% - (1px));
-  height: -webkit-calc(100% - (1px));
-  height: calc(100% - (1px));
-}
-.cp{
+.cp {
   width: 100%;
-  height: -moz-calc(100% - (70px));
-  height: -webkit-calc(100% - (70px));
-  height: calc(100% - (70px));
+  height: -moz-calc(100vh - (70px));
+  height: -webkit-calc(100vh - (70px));
+  height: calc(100vh - (70px));
   transition: 0.5s linear;
   background-color: #fff;
 }
 
-.cp-wrapper{
+.cp-wrapper {
   max-width: 1300px;
   display: flex;
   flex-direction: column;
@@ -24,17 +15,29 @@ html, body {
   padding: 0 15px;
 }
 
-.cp-back{
+.cp-topBar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cp-topbar-item {
   padding: 15px;
   width: 150px;
   height: 50px;
-  -webkit-box-shadow: 1px 1px 5px 1px #e9e9e9; 
+  -webkit-box-shadow: 1px 1px 5px 1px #e9e9e9;
   box-shadow: 1px 1px 5px 1px #e9e9e9;
   border-radius: 5px;
   margin: 50px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
 }
 
-.cp-back a{
+.cp-topbar-item a {
   color: #000;
   text-decoration: none;
   display: flex;
@@ -44,22 +47,22 @@ html, body {
   align-items: center;
 }
 
-.cp-country{
+.cp-country {
   display: flex;
   flex-wrap: wrap;
 }
 
-.cp-img{
+.cp-img {
   flex: 4;
 }
 
-.cp-img img{
+.cp-img img {
   width: 100%;
   height: 100%;
   max-height: 300px;
 }
 
-.cp-info{
+.cp-info {
   display: flex;
   flex: 6;
   flex-direction: column;
@@ -69,56 +72,58 @@ html, body {
   justify-content: space-around;
 }
 
-.cp-title{
+.cp-title {
   font-weight: 600;
 }
 
-.cp-moreInfo{
+.cp-moreInfo {
   display: flex;
   flex-wrap: wrap;
 }
 
-.cp-moreInfo1{
+.cp-moreInfo1 {
   width: 50%;
 }
-.cp-moreInfo1 ul, .cp-moreInfo2 ul{
+.cp-moreInfo1 ul,
+.cp-moreInfo2 ul {
   list-style-type: none;
   text-decoration: none;
-} 
+}
 
-.cp-moreInfo1 li, .cp-moreInfo2 li{
-  margin: 10px 0
-} 
+.cp-moreInfo1 li,
+.cp-moreInfo2 li {
+  margin: 10px 0;
+}
 
-.cp-moreCountries{
+.cp-moreCountries {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
 }
 
 @media screen and (max-width: 480px) {
-  .cp-country{
+  .cp-country {
     flex-direction: column;
   }
 
-  .cp-back{
+  .cp-back {
     margin-left: 15px;
   }
 
-  .cp-info{
+  .cp-info {
     margin-left: 0;
   }
 
-  .header-title{
+  .header-title {
     font-size: 16px;
     margin-left: 15px;
   }
 
-  .cp-img{
+  .cp-img {
     margin-left: 15px;
   }
 
-  .cp-img img{
+  .cp-img img {
     width: auto;
     height: auto;
   }
