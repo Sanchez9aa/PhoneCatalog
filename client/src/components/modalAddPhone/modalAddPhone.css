@@ -1,0 +1,75 @@
+.m-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+.m-content {
+  width: 80%;
+  height: 70%;
+  background-color: #fff;
+}
+
+.m-header,
+.m-footer {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.m-header h2 {
+  margin: 0;
+}
+
+.m-body {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.m-body-form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.m-body-form input {
+  width: 40%;
+  padding: 10px;
+  margin: 20px;
+}
+
+.m-footer-button{
+    padding: 15px 25px;
+    font-size: 17px;
+    background: white;
+    border: none;
+    -webkit-box-shadow: 1px 1px 5px 1px #e9e9e9;
+    box-shadow: 1px 1px 5px 1px #e9e9e9;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.5s ease-in;
+}
+
+#black::placeholder{
+  color: black
+}
+
+#white::placeholder{
+  color: white
+}
+
+.m-footer-button:hover{
+  transform: scale(1.15);
+}
