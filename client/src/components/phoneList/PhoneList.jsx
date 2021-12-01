@@ -13,8 +13,6 @@ const PhoneList = ({ search }) => {
 
   useEffect(() => {
     const searchPhones = () => {
-    console.log(search)
-    console.log(typeof(search))
     if (search !== ""){
       const filterPhones = phones.filter(
         (x) =>
@@ -28,6 +26,7 @@ const PhoneList = ({ search }) => {
 
   return (
     <>
+    
       {search === "" ? (
         <div className="cl">
           <div className="cl-wrapper">

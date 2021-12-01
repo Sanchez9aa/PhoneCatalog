@@ -31,7 +31,7 @@ const PhoneCard = ({ name, price, processor, img }) => {
           <ul>
             <li className={!dark.state.darkmode ? null : "darkColor"}>
               <strong className={!dark.state.darkmode ? null : "darkColor"}>
-                Precio:
+                Price:
               </strong>{" "}
               {price}{" "} €
             </li>

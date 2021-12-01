@@ -9,9 +9,11 @@ dotenv.config()
 const app = express()
 
 const PORT = process.env.PORT
+const MongoDb = process.env.MONGO_DB
+
 
 //Connect to DB
-DbConnect()
+DbConnect(MongoDb)
 
 //Middlewares
 
