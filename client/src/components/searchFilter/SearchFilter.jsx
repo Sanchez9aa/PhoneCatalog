@@ -1,14 +1,15 @@
 import "./searchFilter.css";
-import {Search} from "react-feather";
+import {Search, Plus} from "react-feather";
 import { useState } from "react";
 import PhoneList from "../phoneList/PhoneList";
 import { useContext } from "react";
 import {DarkContext} from '../../contextApi'
+import ModalAddPhone from '../modalAddPhone/ModalAddPhone'
 
 const SearchFilter = () => {
 
   const dark = useContext(DarkContext)
-
+  const [show, setShow] = useState(false)
   const [search, setSearch] = useState("")
 
   const handleInputChange = (e) => {
@@ -28,9 +29,21 @@ const SearchFilter = () => {
               onChange={(e) => handleInputChange(e)}
             />
           </div>
+          <div className={!dark.state.darkmode ? "sf-rigth" : "sf-rigth darkEL shadow"} onClick={() => setShow(!show)}>
+            <Plus arial-hidden="true" size={20} color={!dark.state.darkmode ? "black" : "white"}  />
+            <input
+              type="button"
+              name="search"
+              value="Add Phone"
+              className={!dark.state.darkmode ? "sf-left-search" : "sf-left-search darkColor" }
+            />
+          </div>
         </div>
       </div>
       <PhoneList search={search} />
+      {
+        !show ? null : <ModalAddPhone show={show} setShow={setShow} />
+      }
     </>
   );
 };
