@@ -11,19 +11,10 @@ const getAllPhones = async (setPhones) => {
     })
 }
 
-const getPhoneById = async (phone, setData) => {
-    const res = await axios.get(`${apiUrl}/${phone}`)
-    .then(res => {
-        setData(res.data[0])
-    }).catch(err =>{
-        console.log(err)
-    })
-}
-
 const getPhoneByName = async (phone, setData) => {
-    const res = await axios.get(`${apiUrl}?name=${phone}`)
+    const res = await axios.get(`${apiUrl}${phone}`)
     .then(res => {
-        setData(res.data[0])
+        setData(res.data)
     }).catch(err =>{
         console.log(err)
     })
@@ -39,14 +30,23 @@ const updatePhone = async (country, setData) => {
     })
 }
 
-const deletePhone = async (country, setData) => {
-    const res = await axios.get(`${apiUrl}/alpha?codes=${country}`)
+const deletePhone = async (phone) => {
+    const res = await axios.delete(`${apiUrl}${phone}`)
     .then(res => {
-        const name = res.data[0].name.common 
-        setData(name)
+        console.log(res)
     }).catch(err =>{
         console.log(err)
     })
 }
 
-export default {getAllPhones, getPhoneById, updatePhone, deletePhone, getPhoneByName }
+const addPhone = async (phone, setData) => {
+    const res = await axios.post(`${apiUrl}`, phone)
+    .then(res => {
+        console.log(res)
+        setData("Phone added")
+    }).catch(err => {
+        console.log(err)
+    })
+}
+
+export default {getAllPhones, updatePhone, deletePhone, getPhoneByName, addPhone }
