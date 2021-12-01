@@ -57,12 +57,12 @@ router.get("/", async (req, res) => {
 });
 
 //Update an phone
-router.put("/:id", async (req, res) => {
+router.put("/:name", async (req, res) => {
+	console.log(req.body)
 	try{
 		const phone = await Phone.findOneAndUpdate(req.params.name, {
 			$set: req.body
 		})
-		console.log(phone)
 		res.status(202).json({message: "Phone has been updated", success: true})
 	}catch(err){
 		res.status(500).json({ message: `put :id ${err}`, success: false });
