@@ -3,11 +3,14 @@ import { useState } from "react";
 import { DarkContext } from "../../contextApi";
 import { useContext } from "react";
 import getApi from "../../services/getApi";
+import { useNavigate } from "react-router-dom";
 
-const ModalEditPhone = ({ show, setShow }) => {
+
+const ModalEditPhone = ({ show, setShow, id }) => {
   const [info, setInfo] = useState();
   const [data, setData] = useState();
   const dark = useContext(DarkContext);
+  const navigate = useNavigate();
 
   const handleInputs = (e) => {
     setInfo({ ...info, [e.target.name]: e.target.value });
@@ -16,15 +19,8 @@ const ModalEditPhone = ({ show, setShow }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    if(!info){
-      setData("Fill all inputs properly")
-      return
-    }
-    if (!info.name || !info.color ||  !info.description || !info.manufacturer || !info.price || !info.processor || !info.ram || !info.screen){
-      setData("Fill all inputs properly")
-      return
-    }
-    getApi.updatePhone(info, setData)
+    getApi.updatePhone(id, info, setData)
+    navigate("/")
   };
 
   if (!show) {
@@ -39,7 +35,7 @@ const ModalEditPhone = ({ show, setShow }) => {
       >
         <div className={!dark.state.darkmode ? "m-header" : "m-header darkEL"}>
           <h2 className={!dark.state.darkmode ? "null" : "darkColor"}>
-            Add a new phone
+            Fill the fields that u need to update
           </h2>
         </div>
         <div className={!dark.state.darkmode ? "m-body" : "m-body border"}>
@@ -136,7 +132,7 @@ const ModalEditPhone = ({ show, setShow }) => {
                 : "m-footer-button darkColor darkEL shadow"
             }
           >
-            Añadir
+            Update
           </button>
         </div>
       </div>
