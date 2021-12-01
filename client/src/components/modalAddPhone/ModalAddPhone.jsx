@@ -136,7 +136,7 @@ const ModalAddPhone = ({ show, setShow }) => {
                 : "m-footer-button darkColor darkEL shadow"
             }
           >
-            Añadir
+            Add
           </button>
         </div>
       </div>
