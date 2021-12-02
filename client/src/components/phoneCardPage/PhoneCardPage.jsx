@@ -48,7 +48,7 @@ const PhoneCardPage = ({ data }) => {
                   !dark.state.darkmode ? "cp-topbar-item" : "cp-topbar-item shadow darkEL"
                 }
               >
-                  <Minus arial-hidden="true" size={20} color={!dark.state.darkmode ? "black" : "white"} />
+                  <Edit arial-hidden="true" size={20} color={!dark.state.darkmode ? "black" : "white"} />
                   <span className={!dark.state.darkmode ? null : "darkColor"}>
                     {" "}
                     Update{" "}
@@ -60,7 +60,7 @@ const PhoneCardPage = ({ data }) => {
                   !dark.state.darkmode ? "cp-topbar-item" : "cp-topbar-item shadow darkEL"
                 }
               >
-                <Edit arial-hidden="true" size={20} color={!dark.state.darkmode ? "black" : "white"} />
+                <Minus arial-hidden="true" size={20} color={!dark.state.darkmode ? "black" : "white"} />
                 <span className={!dark.state.darkmode ? null : "darkColor"}>
                   {" "}
                   Delete{" "}
