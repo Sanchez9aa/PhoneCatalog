@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 
 const ModalEditPhone = ({ show, setShow, id }) => {
   const [info, setInfo] = useState();
-  const [data, setData] = useState();
   const dark = useContext(DarkContext);
   const navigate = useNavigate();
 
@@ -19,7 +18,7 @@ const ModalEditPhone = ({ show, setShow, id }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    getApi.updatePhone(id, info, setData)
+    getApi.updatePhone(id, info)
     navigate("/")
   };
 
@@ -35,7 +34,7 @@ const ModalEditPhone = ({ show, setShow, id }) => {
       >
         <div className={!dark.state.darkmode ? "m-header" : "m-header darkEL"}>
           <h2 className={!dark.state.darkmode ? "null" : "darkColor"}>
-            Fill the fields that u need to update
+            Fill the fields that you need to update
           </h2>
         </div>
         <div className={!dark.state.darkmode ? "m-body" : "m-body border"}>
@@ -121,7 +120,6 @@ const ModalEditPhone = ({ show, setShow, id }) => {
               onChange={(e) => handleInputs(e)}
             />
           </form>
-          {!data ? null : data}
         </div>
         <div className="m-footer">
           <button

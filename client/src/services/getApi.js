@@ -20,10 +20,10 @@ const getPhoneByName = async (phone, setData) => {
     })
 }
 
-const updatePhone = async (id, phone, setData) => {
+const updatePhone = async (id, phone) => {
     const res = await axios.put(apiUrl + id, phone)
     .then(res => {
-        setData("Phone updated")
+        console.log(res)
     }).catch(err =>{
         console.log(err)
     })
