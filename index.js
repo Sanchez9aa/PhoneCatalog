@@ -12,9 +12,6 @@ const PORT = process.env.PORT
 const MongoDb = process.env.MONGO_DB
 const Prod = process.env.NODE_ENV
 
-
-
-
 //Connect to DB
 DbConnect(MongoDb)
 
@@ -26,7 +23,7 @@ app.use("/phones", phoneRouter)
 
 //Check if we got the produc build for heroku
 
-if(prod === "production"){
+if (Prod === "production") {
     app.use(expess.static("client/build"))
 }
 
