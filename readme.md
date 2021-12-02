@@ -55,7 +55,7 @@ There is an error response for the following cases :
 
 All the phones in the DB will be returned to us.
 
-<h3> GET /robot/:name </h3>
+<h3> GET /phones/:name </h3>
 
 The phone will be returned to us with the requested name.
 
