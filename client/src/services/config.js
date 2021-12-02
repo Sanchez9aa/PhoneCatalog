@@ -1,3 +1,3 @@
-const apiUrl = "http://localhost:8802/phones/" 
+const apiUrl = "https://phonescatalog.herokuapp.com/phones/" 
 
 export default apiUrl
