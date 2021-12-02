@@ -8,9 +8,10 @@ import { useNavigate } from "react-router-dom";
 
 const ModalEditPhone = ({ show, setShow, id }) => {
   const [info, setInfo] = useState();
+  const [data, setData] = useState();
   const dark = useContext(DarkContext);
   const navigate = useNavigate();
-
+  console.log(show)
   const handleInputs = (e) => {
     setInfo({ ...info, [e.target.name]: e.target.value });
     console.log(info);
@@ -18,6 +19,10 @@ const ModalEditPhone = ({ show, setShow, id }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
+    if(!info){
+      setData("Fill at least one input to uptdate this phone")
+      return
+    }
     getApi.updatePhone(id, info)
     navigate("/")
   };
@@ -27,7 +32,7 @@ const ModalEditPhone = ({ show, setShow, id }) => {
   }
 
   return (
-    <div className="m-overlay" onClick={() => setShow(!show)}>
+    <div className="m-overlay" onClick={() => setShow(!show) }>
       <div
         className={!dark.state.darkmode ? "m-content" : "m-content darkBG"}
         onClick={(e) => e.stopPropagation()}
@@ -120,6 +125,7 @@ const ModalEditPhone = ({ show, setShow, id }) => {
               onChange={(e) => handleInputs(e)}
             />
           </form>
+          {!data ? null : data}
         </div>
         <div className="m-footer">
           <button

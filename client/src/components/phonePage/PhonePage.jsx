@@ -9,9 +9,7 @@ const PhonePage = () => {
   const phone = useParams().phone;
 
   useEffect(() => {
-    console.log(phone);
     getApi.getPhoneByName(phone, setData);
-    console.log(data);
   }, [phone]);
 
   return (

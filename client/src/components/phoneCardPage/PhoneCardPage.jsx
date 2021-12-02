@@ -151,7 +151,7 @@ const PhoneCardPage = ({ data }) => {
           </div>
         </div>
       ) : null}
-      {!show ? null : <ModalEditPhone show={show} id={data._id}/> }
+      {!show ? null : <ModalEditPhone show={show} setShow={setShow} id={data._id}/> }
     </>
   );
 };
