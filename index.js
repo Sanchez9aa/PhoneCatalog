@@ -24,7 +24,7 @@ app.use("/phones", phoneRouter)
 //Check if we got the produc build for heroku
 
 if (Prod === "production") {
-    app.use(expess.static("client/build"))
+    app.use(express.static("client/build"))
 }
 
 app.listen(PORT || 8801, () => {
